@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Sichuan wenxuan vocational college - home page</title>
+		<link href="css/index_style.css" rel="stylesheet" type="text/css" />
+		<script language="JavaScript">
+			window.onload = function()
+			{  
+				var iBox = document.getElementById("box");
+					var iTime_box = iBox.getElementsByTagName("div")[0];
+						var ihead_p1 = iTime_box.getElementsByTagName("p")[0];
+						var ihead_p2 = iTime_box.getElementsByTagName("p")[1];
+					var iBox02 = iBox.getElementsByTagName("div")[1];
+						var iBox03 = iBox02.getElementsByTagName("div")[0];
+						var img_mod = iBox02.getElementsByTagName("div")[1];
+							var oP1 = img_mod.getElementsByTagName("p")[0];
+							var oP2 = img_mod.getElementsByTagName("p")[1];
+							var iMg = img_mod.getElementsByTagName("img")[0];
+							var uL = img_mod.getElementsByTagName("ul")[0];
+								var aLi = uL.getElementsByTagName("li");
+					var mainNew = document.getElementById("mainBody");
+						var nav = mainNew.getElementsByTagName("div")[0];
+						var New = mainNew.getElementsByTagName("div")[1];
+							var NewImg = New.getElementsByTagName("div")[0];
+								var NewImgSrc = NewImg.getElementsByTagName("img")[0];
+								var NewImgP1 = NewImg.getElementsByTagName("p")[0];
+								var NewImgP2 = NewImg.getElementsByTagName("p")[1];
+								var NewImgUl = NewImg.getElementsByTagName("ul")[0];
+									var NewImgUlLi = NewImgUl.getElementsByTagName("li");
+							var New01 = New.getElementsByTagName("div")[1];
+							var New02 = New.getElementsByTagName("div")[2];
+								var New02Ul = New02.getElementsByTagName("ul")[0];
+									var New02_ulLi = New02Ul.getElementsByTagName("li");
+						
+				var timer = null;
+				var timer_two = null;
+				var timer_03 = null;
+				var num = 0;
+				var idex = 0;
+				var arrUrl = ["img/01.jpg","img/02.jpg","img/03.jpg","img/04.jpg","img/05.jpg","img/06.jpg"]
+				var arrText = ["Practice base","Main entrance","No.3 teaching building","Basketball silhouette","Football field","coser"]
+				var arrNewText = ["Zhang zi, a teacher in our college, was awarded the first sichuan general election","Vice President zhang qian led the team to suning internship base to visit interns","Sichuan wenxuan vocational college party committee organization cadre teachers and students view","Sichuan university student ideological and political work research institute","College held to commemorate 83 anniversary of the first 12 ` 9 movement","The youth league committee of the college held the inaugural meeting of the league society in 2018"];
+				var arrNewUrl = ["img/new01.jpg","img/new02.jpg","img/new03.png","img/new04.jpg","img/new05.jpg","img/new06.jpg"];
+				for(var i = 0;i<arrUrl.length;i++)
+				{
+					uL.innerHTML += "<li></li>";					
+				}
+				for(var i = 0;i<arrNewUrl.length;i++)
+				{
+					NewImgUl.innerHTML += "<li></li>";
+				}
+				timer_two = setInterval(function(){realTime_load();},1000)
+				timeLoad();
+				function newLoad()
+				{
+					NewImgP1.innerHTML = arrNewText[idex];
+					NewImgP2.innerHTML = idex+1+"/"+arrNewUrl.length;
+					NewImgSrc.src = arrNewUrl[idex];
+					for(var i=0;i<arrNewUrl.length;i++)
+					{
+						New02_ulLi[i].className = "";
+						NewImgUlLi[i].className = "";
+					}
+					NewImgUlLi[idex].className = "li_action";
+					New02_ulLi.className = "jiazai";
+				}
+				newLoad();
+				function imgLoad()
+				{
+					oP1.innerHTML = arrText[num];
+					oP2.innerHTML = num+1+"/"+arrUrl.length;
+					iMg.src = arrUrl[num];
+					for(var i = 0;i<arrUrl.length;i++)
+					{
+						aLi[i].className = "";
+					}
+					aLi[num].className = "action";
+				}
+				imgLoad();
+				function timeLoad()
+				{
+					var getTime = new Date();
+					var ihour = getTime.getHours();
+					if(06<ihour&&ihour<=08)
+					{
+						ihead_p2.innerHTML = "Good morning, a year when the spring, a day when the morning yo";
+					}
+					else if (08<ihour && ihour<=11)
+					{
+						ihead_p2.innerHTML = "Good morning. What else do you plan to do today?";
+					}
+					else if (11<ihour&&ihour<=13) 
+					{
+						ihead_p2.innerHTML = "It's already noon, don't forget to have lunch";
+					}
+					else if(13<ihour&&ihour<=17)
+					{
+						ihead_p2.innerHTML = "How about a cup of tea on an easy afternoon?";
+					}
+					else if (17<ihour&&ihour<=22)
+					{
+						ihead_p2.innerHTML = "Night, today's you, how are you?";
+					}
+					else
+					{
+						ihead_p2.innerHTML = "It's late at night, haven't you slept yet? Don't stay up late, good night";
+					}
+				}
+				function realTime_load()
+				{
+					var ihead_p3 = iTime_box.getElementsByTagName("p")[2];
+					var iSpan_year = ihead_p3.getElementsByTagName("span")[0];
+					var iSpan_month = ihead_p3.getElementsByTagName("span")[1];
+					var iSpan_day = ihead_p3.getElementsByTagName("span")[2];
+					var iSpan_hour = ihead_p3.getElementsByTagName("span")[3];
+					var iSpan_minute = ihead_p3.getElementsByTagName("span")[4];
+					var iSpan_second = ihead_p3.getElementsByTagName("span")[5];
+					var iSpan_week = ihead_p3.getElementsByTagName("span")[6];
+					var SyTime = new Date();
+					var iYear = SyTime.getFullYear();
+					var iMonth = SyTime.getMonth()+1;
+					var iDay = SyTime.getDate();
+					var iHour = SyTime.getHours();
+					var iMinute = SyTime.getMinutes();
+					var iSecind = SyTime.getSeconds();
+					var iWeek = SyTime.getDay();
+					var arrDay = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+					iSpan_year.innerHTML = iYear;
+					iSpan_month.innerHTML = iMonth;
+					iSpan_day.innerHTML = iDay;
+					iSpan_hour.innerHTML = iHour;
+					iSpan_minute.innerHTML = iMinute;
+					iSpan_second.innerHTML = iSecind;
+					iSpan_week.innerHTML = arrDay[iWeek];
+				}
+				
+				for(var i = 0;i<arrUrl.length;i++)
+				{
+					aLi[i].index = i;
+					aLi[i].onclick = function()
+					{
+					    num = this.index;
+					    imgLoad();
+					}
+				}
+				for(var i = 0;i<arrNewUrl.length;i++)
+				{
+					NewImgUlLi[i].index = i;
+					NewImgUlLi[i].onclick = function()
+					{
+						idex = this.index;
+						newLoad();
+					}
+				}
+				timer = setInterval(function()
+				{
+					oP1.innerHTML = arrText[num];
+					oP2.innerHTML = num+1+"/"+arrUrl.length;
+					iMg.src = arrUrl[num];
+					for(var i = 0;i<arrUrl.length;i++)
+					{
+						aLi[i].className = "";
+					}
+					aLi[num].className = "action";
+					num++;
+					num%=arrUrl.length;
+				},3500)
+				
+				timer_03 = setInterval(function(){newLoad();idex++;idex%=arrNewUrl.length;},4000)
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<span class="long" style="width: 500px;">Language switching
+				<a class="english" href="english.html" style="left: 210px;">English</a>
+				<a class="china" href="index.html" style="left: 310px;">简体中文</a>
+			</span>
+			<div id="box_time">
+				<p class="time_p1">Hello, welcome to this page</p>
+				<p class="time_p2"></p>
+				<p class="time_p3" style="width: 800px;">
+					Now it is
+					<span></span>years
+					<span></span>month
+					<span></span>day
+					<span></span>:
+					<span></span>:
+					<span></span>
+					<span class="week"></span>
+				</p>
+				<p class="guanwang">Click on the<a href="http://www.scwxzyxy.cn/">here</a>Jump to the campus website</p>
+			</div>
+			<div id="box02">
+				<div id="box03">
+					<ul>
+						<li><a href="#">Home page</a></li>
+						<li><a href="#">Campus culture</a></li>
+						<li><a href="#">deli</a></li>
+						<li><a href="#">community</a></li>
+						<li><a href="#">Photo gallery</a></li>
+						<li><a href="#">The news bulletin</a></li>
+						<li style="font-size: 16px;"><a href="#">Campus friendship corner</a></li>
+					</ul>
+				</div>	
+				<div id="img_style">
+					<p id="p1">Text loading</p>
+					<img width="950px" height="420px" src="" />
+					<p id="p2">Sequential loading</p>
+					<ul></ul>
+				</div>
+			</div>
+			<div id="mainBody">
+				<h1 class="New_title"  style="font-size: 30px;">Campus news</h1>
+				<div class="newSchool">
+					<ul class="caidan">
+						<li class="li_yishi">
+							<a href="#" style="font-size: 14px;">Campus anecdotes</a>
+							<ul class="yiSHi">
+								<li><a href="#" style="font-size: 12px;">The dormitory anecdotes</a></li>
+								<li><a href="#" style="font-size: 12px;">The recent news</a></li>
+								<li><a href="#"  style="font-size: 12px;">Community anecdotes</a></li>
+								<li><a href="#" style="font-size: 12px;">Culture collection</a></li>
+							</ul>
+						</li>
+						<li class="li_huodong">
+							<a href="#" style="font-size: 14px;">Campus activities</a>
+							<ul class="huoDong">
+								<li><a href="#" style="font-size: 12px;">Club activities</a></li>
+								<li><a href="#" style="font-size: 12px;">The school activities</a></li>
+								<li><a href="#" style="font-size: 12px;">Class activities</a></li>
+								<li><a href="#" style="font-size: 12px;">Great learning,</a></li>
+							</ul>
+						</li>
+						<li class="li_gongzuo">
+							<a href="#" style="font-size: 14px;">The school work</a>
+							<ul class="gongZuo">
+								<li><a href="#" style="font-size: 12px;">The student financial</a></li>
+								<li><a href="#" style="font-size: 12px;">The student union</a></li>
+								<li><a href="#" style="font-size: 12px;">Working file</a></li>
+								<li><a href="#" style="font-size: 12px;">Download resources</a></li>
+								<li><a href="#" style="font-size: 12px;">Prevent campus loans</a></li>
+							</ul>
+						</li>
+						<li class="li_qiren">
+							<a href="#" style="font-size: 14px;">List of man</a>
+							<ul class="qiRen">
+								<li><a href="#" style="font-size: 12px;">List of amazing people</a></li>
+								<li><a href="#" style="font-size: 12px;">List of class wonders</a></li>
+								<li><a href="#" style="font-size: 12px;">Campus god list</a></li>
+							</ul>
+						</li>
+						<li class="li_zixun">
+							<a href="#" style="font-size: 12px;">Consulting the entrance</a>
+							<ul class="ziXun">
+							<li><a href="#" style="font-size: 12px;">Results the query</a></li>
+							<li><a href="#" style="font-size: 12px;">Admission to the query</a></li>
+							<li><a href="#" style="font-size: 12px;">The school map</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="SchoolNew">
+					<div class="new_Imge">
+						<p class="new_Imge_1">Text 1</p>
+						<img width="450px" height="250px"/ src="">
+						<p class="new_Imge_2">Text 2</p>
+						<ul></ul>
+					</div>
+					<div class="New_01">
+						<ul>
+							<li><a href="#">School of management engineering and suning "yuncang" </a></li>
+							<li><a href="#">Zhou shuhang of our college was nominated as</a></li>
+							<li><a href="#">我院在“知识服务创新川大论坛暨 超星杯...</a></li>
+							<li><a href="#">2018-2019学年第二学期人员招聘的公告</a></li>
+							<li><a href="#">关于2018—2019学年第一学期期末工作的通知</a></li>
+							<li><a href="#">学院工会举办“和谐我生活，健康中国人”知识讲座</a></li>
+						</ul>
+					</div>
+					<div class="New_02">
+						<ul>
+							<li><a href="#">我院教师张孜荣获首届四川省普通高等学校优秀公共艺术课程现场展示活动音乐舞蹈类三等奖</a></li>
+							<li><a href="#">张倩副院长带队到苏宁“云仓”实习基地看望实习生</a></li>
+							<li><a href="#">四川文轩职业学院党委组织干部师生观看“庆祝改革开放40周年大会”直播</a></li>
+							<li><a href="#">四川省高校学生思想政治工作研究会2018年年会隆重举行</a></li>
+							<li><a href="#">学院举办纪念“12`9”运动83周年暨第四届主题合唱大赛</a></li>
+							<li><a href="#">院团委召开2018届“团学会”成立大会</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

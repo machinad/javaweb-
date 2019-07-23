@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>四川文轩职业学院-首页</title>
+		<link href="css/index_style.css" rel="stylesheet" type="text/css" />
+		<script language="JavaScript">
+			window.onload = function()
+			{  
+				var iBox = document.getElementById("box");
+					var iTime_box = iBox.getElementsByTagName("div")[0];
+						var ihead_p1 = iTime_box.getElementsByTagName("p")[0];
+						var ihead_p2 = iTime_box.getElementsByTagName("p")[1];
+					var iBox02 = iBox.getElementsByTagName("div")[1];
+						var iBox03 = iBox02.getElementsByTagName("div")[0];
+						var img_mod = iBox02.getElementsByTagName("div")[1];
+							var oP1 = img_mod.getElementsByTagName("p")[0];
+							var oP2 = img_mod.getElementsByTagName("p")[1];
+							var iMg = img_mod.getElementsByTagName("img")[0];
+							var uL = img_mod.getElementsByTagName("ul")[0];
+								var aLi = uL.getElementsByTagName("li");
+					var mainNew = document.getElementById("mainBody");
+						var nav = mainNew.getElementsByTagName("div")[0];
+						var New = mainNew.getElementsByTagName("div")[1];
+							var NewImg = New.getElementsByTagName("div")[0];
+								var NewImgSrc = NewImg.getElementsByTagName("img")[0];
+								var NewImgP1 = NewImg.getElementsByTagName("p")[0];
+								var NewImgP2 = NewImg.getElementsByTagName("p")[1];
+								var NewImgUl = NewImg.getElementsByTagName("ul")[0];
+									var NewImgUlLi = NewImgUl.getElementsByTagName("li");
+							var New01 = New.getElementsByTagName("div")[1];
+							var New02 = New.getElementsByTagName("div")[2];
+								var New02Ul = New02.getElementsByTagName("ul")[0];
+									var New02_ulLi = New02Ul.getElementsByTagName("li");
+						
+				var timer = null;
+				
+				var timer_two = null;
+				var timer_03 = null;
+				var num = 0;
+				var idex = 0;
+				var arrUrl = ["img/01.jpg","img/02.jpg","img/03.jpg","img/04.jpg","img/05.jpg","img/06.jpg"]
+				var arrText = ["实训基地","正门","第三教学楼","篮球剪影","足球场","coser"]
+				var arrNewText = ["我院教师张孜荣获首届四川省普","张倩副院长带队到苏宁“云仓”实习基地看望实习生","四川文轩职业学院党委组织干部师生观","四川省高校学生思想政治工作研究会","学院举办纪念“12`9”运动83周年暨第","院团委召开2018届“团学会”成立大会"];
+				var arrNewUrl = ["img/new01.jpg","img/new02.jpg","img/new03.png","img/new04.jpg","img/new05.jpg","img/new06.jpg"];
+//				var imainBody = iBox.getElementsByTagName("div")[2];
+//				var inavigation = imainBody.getElementsByTagName("div")[0];
+//				var Newschool = imainBody.getElementsByTagName("div")[1];
+//				var NewSchoolImg = Newschool.getElementsByTagName("div")[0];
+//				var NewSchoolimg_src = NewSchoolImg.getElementsByTagName("img")[0];
+				for(var i = 0;i<arrUrl.length;i++)
+				{
+					uL.innerHTML += "<li></li>";					
+				}
+				for(var i = 0;i<arrNewUrl.length;i++)
+				{
+					NewImgUl.innerHTML += "<li></li>";
+				}
+				timer_two = setInterval(function(){realTime_load();},1000)
+				timeLoad();
+				function newLoad()
+				{
+					NewImgP1.innerHTML = arrNewText[idex];
+					NewImgP2.innerHTML = idex+1+"/"+arrNewUrl.length;
+					NewImgSrc.src = arrNewUrl[idex];
+					for(var i=0;i<arrNewUrl.length;i++)
+					{
+						New02_ulLi[i].className = "";
+						NewImgUlLi[i].className = "";
+					}
+					NewImgUlLi[idex].className = "li_action";
+					New02_ulLi.className = "jiazai";
+				}
+				newLoad();
+				function imgLoad()
+				{
+					oP1.innerHTML = arrText[num];
+					oP2.innerHTML = num+1+"/"+arrUrl.length;
+					iMg.src = arrUrl[num];
+					for(var i = 0;i<arrUrl.length;i++)
+					{
+						aLi[i].className = "";
+					}
+					aLi[num].className = "action";
+				}
+				imgLoad();
+				function timeLoad()
+				{
+					var getTime = new Date();
+					var ihour = getTime.getHours();
+					if(06<ihour&&ihour<=08)
+					{
+						ihead_p2.innerHTML = "早晨好，一年之际在于春，一日之际在于晨哟";
+					}
+					else if (08<ihour && ihour<=11)
+					{
+						ihead_p2.innerHTML = "上午好，今天，您又计划做些什么呢？";
+					}
+					else if (11<ihour&&ihour<=13) 
+					{
+						ihead_p2.innerHTML = "已经中午啦，可别忘记吃午饭哟";
+					}
+					else if(13<ihour&&ihour<=17)
+					{
+						ihead_p2.innerHTML = "安逸的午后，喝杯茶，怎样？"
+					}
+					else if (17<ihour&&ihour<=22)
+					{
+						ihead_p2.innerHTML = "夜晚了，今天的你，过得还好吗？"
+					}
+					else
+					{
+						ihead_p2.innerHTML = "夜深了，您还没睡吗，不要熬夜了哟，晚安"
+					}
+				}
+				function realTime_load()
+				{
+					var ihead_p3 = iTime_box.getElementsByTagName("p")[2];
+					var iSpan_year = ihead_p3.getElementsByTagName("span")[0];
+					var iSpan_month = ihead_p3.getElementsByTagName("span")[1];
+					var iSpan_day = ihead_p3.getElementsByTagName("span")[2];
+					var iSpan_hour = ihead_p3.getElementsByTagName("span")[3];
+					var iSpan_minute = ihead_p3.getElementsByTagName("span")[4];
+					var iSpan_second = ihead_p3.getElementsByTagName("span")[5];
+					var iSpan_week = ihead_p3.getElementsByTagName("span")[6];
+					var SyTime = new Date();
+					var iYear = SyTime.getFullYear();
+					var iMonth = SyTime.getMonth()+1;
+					var iDay = SyTime.getDate();
+					var iHour = SyTime.getHours();
+					var iMinute = SyTime.getMinutes();
+					var iSecind = SyTime.getSeconds();
+					var iWeek = SyTime.getDay();
+					var arrDay = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+					iSpan_year.innerHTML = iYear;
+					iSpan_month.innerHTML = iMonth;
+					iSpan_day.innerHTML = iDay;
+					iSpan_hour.innerHTML = iHour;
+					iSpan_minute.innerHTML = iMinute;
+					iSpan_second.innerHTML = iSecind;
+					iSpan_week.innerHTML = arrDay[iWeek];
+				}
+				
+				for(var i = 0;i<arrUrl.length;i++)
+				{
+					aLi[i].index = i;
+					aLi[i].onclick = function()
+					{
+					    num = this.index;
+					    imgLoad();
+					}
+				}
+				for(var i = 0;i<arrNewUrl.length;i++)
+				{
+					NewImgUlLi[i].index = i;
+					NewImgUlLi[i].onclick = function()
+					{
+						idex = this.index;
+						newLoad();
+					}
+				}
+				timer = setInterval(function()
+				{
+					oP1.innerHTML = arrText[num];
+					oP2.innerHTML = num+1+"/"+arrUrl.length;
+					iMg.src = arrUrl[num];
+					for(var i = 0;i<arrUrl.length;i++)
+					{
+						aLi[i].className = "";
+					}
+					aLi[num].className = "action";
+					num++;
+					num%=arrUrl.length;
+				},3500)
+				
+				timer_03 = setInterval(function(){newLoad();idex++;idex%=arrNewUrl.length;},4000)
+				
+			}
+		</script>
+	</head>
+	<body>
+		<script language="JavaScript">
+			var shijian = new Date();
+			var ihours = shijian.getHours();
+			alert("欢迎，现在是"+ihours+"点钟")
+		</script>
+		<div id="box">
+			<span class="long">语言切换
+				<a class="english" href="english.html">English</a>
+				<a class="china" href="index.html">简体中文</a>
+			</span>
+			<div id="box_time">
+				<p class="time_p1">你好，欢迎浏览本页</p>
+				<p class="time_p2"></p>
+				<p class="time_p3">
+					现在是
+					<span></span>年
+					<span></span>月
+					<span></span>日
+					<span></span>:
+					<span></span>:
+					<span></span>
+					<span class="week"></span>
+				</p>
+				<p class="guanwang">点击<a href="http://www.scwxzyxy.cn/">此处</a>跳转到校园官网</p>
+			</div>
+			<div id="box02">
+				<div id="box03">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li><a href="#">校园文化</a></li>
+						<li><a href="#">美食城</a></li>
+						<li><a href="#">社团</a></li>
+						<li><a href="#">摄影画廊</a></li>
+						<li><a href="#">新闻公告</a></li>
+						<li><a href="#">校园交友角</a></li>
+					</ul>
+					<!--<span>首页</span>
+					<span>校园文化</span>
+					<span>美食城</span>
+					<span>社团</span>
+					<span>摄影画廊</span>
+					<span>新闻公告</span>
+					<span>校园交友角</span>-->
+				</div>	
+				<div id="img_style">
+					<p id="p1">文字加载中</p>
+					<img width="950px" height="420px" src="" />
+					<p id="p2">顺序加载中</p>
+					<ul></ul>
+				</div>
+			</div>
+			<div id="mainBody">
+				<h1 class="New_title">校园新闻</h1>
+				<div class="newSchool">
+					<ul class="caidan">
+						<li class="li_yishi">
+							<a href="#">校园轶事</a>
+							<ul class="yiSHi">
+								<li><a href="#">宿舍轶事</a></li>
+								<li><a href="#">近期新闻</a></li>
+								<li><a href="#">社团轶事</a></li>
+								<li><a href="#">文化集</a></li>
+							</ul>
+						</li>
+						<li class="li_huodong">
+							<a href="#">校园活动</a>
+							<ul class="huoDong">
+								<li><a href="#">社团活动</a></li>
+								<li><a href="#">校方活动</a></li>
+								<li><a href="#">班级活动</a></li>
+								<li><a href="#">大·学习</a></li>
+							</ul>
+						</li>
+						<li class="li_gongzuo">
+							<a href="#">校方工作</a>
+							<ul class="gongZuo">
+								<li><a href="#">学生资助</a></li>
+								<li><a href="#">学生会</a></li>
+								<li><a href="#">工作文件</a></li>
+								<li><a href="#">资源下载</a></li>
+								<li><a href="#">防范校园贷</a></li>
+							</ul>
+						</li>
+						<li class="li_qiren">
+							<a href="#">奇人榜</a>
+							<ul class="qiRen">
+								<li><a href="#">宿舍奇人榜</a></li>
+								<li><a href="#">班级奇人榜</a></li>
+								<li><a href="#">校园大神榜</a></li>
+							</ul>
+						</li>
+						<li class="li_zixun">
+							<a href="#">咨询入口</a>
+							<ul class="ziXun">
+							<li><a href="#">成绩查询</a></li>
+							<li><a href="#">录取查询</a></li>
+							<li><a href="#">学校地图</a></li>
+							</ul>
+						</li>
+					</ul>
+					<!--<span class="yiSHi_span"><a href="#">校园轶事</a></span>
+					<span class="huoDong_span">校园活动</span>
+					<span class="gongZuo_span">校方工作</span>
+					<span class="qiRen_span">奇人榜</span>
+					<span class="ziXun_span">咨询入口</span>-->
+				</div>
+				<!--<ul class="yiSHi">
+					<li><a href="#">宿舍轶事</a></li>
+					<li><a href="#">近期新闻</a></li>
+					<li><a href="#">社团轶事</a></li>
+					<li><a href="#">文化集</a></li>
+				</ul>-->
+				<div class="SchoolNew">
+					<div class="new_Imge">
+						<p class="new_Imge_1">文本1</p>
+						<img width="450px" height="250px"/ src="">
+						<p class="new_Imge_2">文本2</p>
+						<ul></ul>
+					</div>
+					<div class="New_01">
+						<ul>
+							<li><a href="#">管理工程学院与苏宁“云仓”开展校企合作基地见习</a></li>
+							<li><a href="#">我院周书航同学荣获全省高校“校园最美</a></li>
+							<li><a href="#">我院在“知识服务创新川大论坛暨 超星杯...</a></li>
+							<li><a href="#">2018-2019学年第二学期人员招聘的公告</a></li>
+							<li><a href="#">关于2018—2019学年第一学期期末工作的通知</a></li>
+							<li><a href="#">学院工会举办“和谐我生活，健康中国人”知识讲座</a></li>
+						</ul>
+					</div>
+					<div class="New_02">
+						<ul>
+							<li><a href="#">我院教师张孜荣获首届四川省普通高等学校优秀</a></li>
+							<li><a href="#">张倩副院长带队到苏宁“云仓”实习基地看望实习生</a></li>
+							<li><a href="#">四川文轩职业学院党委组织干部师生观看“庆祝</a></li>
+							<li><a href="#">四川省高校学生思想政治工作研究会2018年年会隆重举行</a></li>
+							<li><a href="#">学院举办纪念“12`9”运动83周年暨第四届主题合唱大赛</a></li>
+							<li><a href="#">院团委召开2018届“团学会”成立大会</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
